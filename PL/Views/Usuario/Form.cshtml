@@ -35,13 +35,13 @@
                             @Html.LabelFor(model => model.Nombre)
                             <div class="input-group">
                                 <span class="input-group-addon" id="usernameicon"><i class="fa-solid fa-circle-user" style="color: chartreuse"></i></span>
-                                @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", @id = "txtUserName" })
-                                
+                                @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", @id = "txtNombres" })
+
                             </div>
                         </div>
                     </div>
 
-                    
+
 
                     <div class="form-group">
                         <div class="col-md-4">
@@ -70,21 +70,21 @@
                             @Html.LabelFor(model => model.FechaNacimineto)
                             <div class="input-group">
                                 <span class="input-group-addon"> <i class="fa-solid fa-at"></i> </span>
-                                @Html.TextBoxFor(model => model.FechaNacimineto, new { @class = "form-control", @id = "txtEmail" })
-                              
+                                @Html.TextBoxFor(model => model.FechaNacimineto, new { @class = "form-control", @id = "txtFechaNacimiento" })
+
                             </div>
 
                         </div>
                     </div>
 
-                 
+
 
                     <div class="form-group">
                         <div class="col-md-4">
                             @Html.LabelFor(model => model.EstadoCivil)
                             <div class="input-group">
                                 <span class="input-group-addon"> <i class="fa-solid fa-calendar-days"></i> </span>
-                                @Html.TextBoxFor(model => model.EstadoCivil, new { @class = "form-control", @id = "txtFechaNacimiento" })
+                                @Html.TextBoxFor(model => model.EstadoCivil, new { @class = "form-control", @id = "txtEstadoCivil" })
 
 
                             </div>
@@ -109,8 +109,37 @@
                             }
                             <div class="input-group">
                                 <span class="input-group-addon"> <i class="fa-solid fa-venus-mars"></i> </span>
-                                @Html.DropDownListFor(model => model.Sexo, Generos, "Seleccione el sexo", new { @class = "form-control" })
+                                @Html.DropDownListFor(model => model.Sexo, Generos, "Seleccione el sexo", new { @class = "form-control", @id = "txtSexo" })
                                 @Html.ValidationMessageFor(model => model.Sexo)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.Direccion.Estado)
+                            @{
+                                List<SelectListItem> Estados = new List<SelectListItem>();
+                                Estados.Add(new SelectListItem
+                                {
+                                    Text = "Mexico",
+                                    Value = "Mexico"
+                                });
+                                Estados.Add(new SelectListItem
+                                {
+                                    Text = "Nacido en el extranjero",
+                                    Value = "Nacido en el extranjero",
+                                }); 
+                                Estados.Add(new SelectListItem
+                                {
+                                    Text = "Nuevo Leon",
+                                    Value = "Nuevo Leon",
+                                });
+                            }
+                            <div class="input-group">
+                                <span class="input-group-addon"> <i class="fa-solid fa-venus-mars"></i> </span>
+                                @Html.DropDownListFor(model => model.Direccion.Estado, Estados, "Seleccione el estado", new { @class = "form-control", @id = "txtEstado" })
+                               
                             </div>
                         </div>
                     </div>
@@ -120,63 +149,54 @@
                             @Html.LabelFor(model => model.Curp)
                             <div class="input-group">
                                 <span class="input-group-addon"> <i class="fa-solid fa-phone"></i> </span>
-                                @Html.TextBoxFor(model => model.Curp, new { @class = "form-control", @id = "txtNumeroTelefono" })
-                            
+                                @Html.TextBoxFor(model => model.Curp, new { @class = "form-control", @id = "txtCurp" })
+
                             </div>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <div class="col-md-4">
-                            @Html.LabelFor(model => model.Direccion.Estado)
-                            <div class="input-group">
-                                <span class="input-group-addon"> <i class="fa-solid fa-mobile"></i> </span>
-                                @Html.TextBoxFor(model => model.Direccion.Estado, new { @class = "form-control", @id = "txtCelular" })
-                               
-                            </div>
-                        </div>
-                    </div>
+
 
                     <div class="form-group">
                         <div class="col-md-4">
                             @Html.LabelFor(model => model.Direccion.Municipio)
                             <div class="input-group">
                                 <span class="input-group-addon"> <i class="fa-regular fa-id-card"></i> </span>
-                                @Html.TextBoxFor(model => model.Direccion.Municipio, new { @class = "form-control", @id = "txtCURP" })
-                                
+                                @Html.TextBoxFor(model => model.Direccion.Municipio, new { @class = "form-control", @id = "txtMunicipio" })
+
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
                         <div class="col-md-4">
                             @Html.LabelFor(model => model.Direccion.Colonia)
                             <div class="input-group">
                                 <span class="input-group-addon"> <i class="fa-regular fa-id-card"></i> </span>
-                                @Html.TextBoxFor(model => model.Direccion.Colonia, new { @class = "form-control", @id = "txtCURP" })
-                                
+                                @Html.TextBoxFor(model => model.Direccion.Colonia, new { @class = "form-control", @id = "txtColonia" })
+
                             </div>
                         </div>
                     </div>
-                      
+
                     <div class="form-group">
                         <div class="col-md-4">
                             @Html.LabelFor(model => model.Direccion.Calle)
                             <div class="input-group">
                                 <span class="input-group-addon"> <i class="fa-regular fa-id-card"></i> </span>
-                                @Html.TextBoxFor(model => model.Direccion.Calle, new { @class = "form-control", @id = "txtCURP" })
-                                
+                                @Html.TextBoxFor(model => model.Direccion.Calle, new { @class = "form-control", @id = "txtCalle" })
+
                             </div>
                         </div>
                     </div>
-                      
+
                     <div class="form-group">
                         <div class="col-md-4">
                             @Html.LabelFor(model => model.Direccion.Numero)
                             <div class="input-group">
                                 <span class="input-group-addon"> <i class="fa-regular fa-id-card"></i> </span>
-                                @Html.TextBoxFor(model => model.Direccion.Numero, new { @class = "form-control", @id = "txtCURP" })
-                                
+                                @Html.TextBoxFor(model => model.Direccion.Numero, new { @class = "form-control", @id = "txtNumero" })
+
                             </div>
                         </div>
                     </div>
@@ -191,6 +211,7 @@
                             <div class="input-group">
                                 <button type="submit" value="Guardar" class="btn btn-success"> <i class="fa-solid fa-floppy-disk fa-beat"></i>  Guardar </button>
                                 @*<input type="submit" value="Guardar" class="btn btn-success" />*@
+                                <a class="btn btn-info" onclick="curp()">Generar Curp</a>
                                 @Html.ActionLink("Regresar", "GetAll", "Usuario", htmlAttributes: new { @class = "btn btn-danger" })
                             </div>
                         </div>
@@ -204,6 +225,34 @@
 
 </div>
 
+@section Scripts{
+    <script type="text/javascript">
+        function curp() { 
+    $.ajax({
+                type: 'Post',
+                url: '@Url.Action("CURP")',
+                dataType: 'json',
+        data: {
+            Nombre: $("#txtNombres").val(),
+            ApellidoPaterno: $("#txtApellidoPaterno").val(),
+            ApellidoMaterno: $("#txtApellidoMaterno").val(),
+            FechaNacimineto: $("#txtFechaNacimiento").val(),
+            Sexo: $("#txtSexo").val(),
+            Direccion: { Estado: $("#txtEstado").val() }
+            
+                   
+        },
+        success: function (object) {
+            $("#txtCurp").val(object.Message);
+                },
+                error: function (ex) {
+                    alert('Failed.' + ex);
+                }
 
+            });
+        }
+    </script>    
+    
+}
 
 

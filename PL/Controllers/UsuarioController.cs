@@ -49,5 +49,13 @@ namespace PL.Controllers
             ViewBag.Message = result.Message;   
             return PartialView("Modal");
         }
+
+        [HttpPost]
+        public JsonResult CURP(ML.Usuario usuario)
+        {
+            ML.Result result = BL.Usuario.CURP(usuario);
+            return Json(result);
+        }
+
     }
 }
